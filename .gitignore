@@ -1,0 +1,23 @@
+# OS droppings
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and IDE state
+*~
+*.swp
+*.swo
+*.bak
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Markdown tooling and preview caches
+.cache/
+_site/
+site/
+node_modules/
+.venv/
+
+# Local exports and drafts (generated PDFs/HTML go through review before committing)
+*.tmp
