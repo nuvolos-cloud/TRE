@@ -15,6 +15,7 @@ Then read the guide for your role:
 
 | # | Guide | You are… | Answers |
 | :---- | :--- | :--- | :--- |
+| 01 | [01_start_here.md](01_start_here.md) | Any interested person curious about how Nuvolos deals with Trusted Research Environments (TREs) | What is a TRE? Why should I care? How does TRE experience differ from regular Nuvolos? |
 | 02 | [02_for_project_teams.md](02_for_project_teams.md) | Project owner, project manager, data custodian, output checker, workspace/permissions operator | How do I set up the project, manage access, approve imports and outputs, handle budgets, change the level, close out? |
 | 03 | [03_for_researchers.md](03_for_researchers.md) | Analyst or data scientist working in a project | How do I bring data in, run analysis at my level, request software, submit results, and get unblocked? |
 | 04 | [04_for_compliance_and_legal.md](04_for_compliance_and_legal.md) | Compliance officer, DPO, legal reviewer, auditor | What evidence does the TRE produce, how are decisions recorded, who holds authority, what is not claimed? |
