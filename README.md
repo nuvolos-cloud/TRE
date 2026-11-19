@@ -1,7 +1,6 @@
-# nuvolos-tre-docs
+# The Nuvolos TRE 
 
-Guides for the Nuvolos Trusted Research Environment (TRE): a governed project
-for analysing sensitive data, where results leave only through a checked process.
+Guides for the Nuvolos Trusted Research Environment (TRE): a governed project management toolkit for analysing sensitive data, where results leave only through a checked process.
 
 ## Start here
 
