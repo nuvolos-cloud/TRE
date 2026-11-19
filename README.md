@@ -2,15 +2,7 @@
 
 Guides for the Nuvolos Trusted Research Environment (TRE): a governed project management toolkit for analysing sensitive data, where results leave only through a checked process.
 
-## Start here
-
-New to the TRE? Read
-[01_start_here.md](01_start_here.md). It explains the Five Safes, the four
-protection levels (Open L0, Controlled L1, Locked L2, Enhanced L3), the project
-lifecycle (request → set up → import → work → output → operate → close out),
-who does what, and what Nuvolos does not promise.
-
-Then read the guide for your role:
+## Quick start
 
 | # | Guide | You are… | Answers |
 | :---- | :--- | :--- | :--- |
