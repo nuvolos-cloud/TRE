@@ -6,16 +6,16 @@ This document is for people who run a Nuvolos project day to day. They include p
 
 Your organisation assigns governance duties. It grants platform capabilities separately, each within a defined scope. One person can hold several roles where the separation rules permit. A job title alone grants no capability and no access to data.
 
-| Role | What you do | What you cannot do |
-| :---- | :---- | :---- |
-| Project owner | Set the project's purpose, terms and funding. Nominate the project manager. Own the expected outputs. | Sign for your organisation unless it gives you that authority. Approve your own access or exports. |
-| Project manager | Coordinate the project and request changes. Invite people or manage roles only with separately delegated capabilities. | Read project data because you manage it. Approve your own requests or widen your own scope. |
-| Data custodian | Run dataset intake. Approve, return or reject each import under the data owner's agreement. | Decide an import you requested. Gain researcher access to an instance by custody alone. |
-| Data owner or delegate | Hold release authority for outputs under the data agreement. | Act beyond the terms of the data agreement. Decide dataset access or set conditions. The data controller agrees access, and the asset owner sets conditions. |
-| Researcher | Work in an instance at Controlled (L1). Submit results for review. | Release results. Approve datasets. At Locked (L2) or Enhanced (L3), use an interactive researcher session. |
-| Output checker | Decide whether to approve, return or reject each staged output. | Check your own request, or an output from an agent you sponsor. Release an output on your own authority. At Controlled (L1), only separately delegated checkers can release. At Locked (L2) or Enhanced (L3), no checker can release. |
-| Agent sponsor | Create and revoke an agent, and be accountable for what it does. | Check the output of an agent you sponsor. |
-| Workspace or permissions operator | Create empty instances (workspace operator), or administer invitations and delegated role changes (permissions operator), when separately granted that capability. | Gain editor access, decide data use, grant yourself access or exceed delegated authority. Operating the project grants none of these. |
+| Role                              | What you do                                                                                                                                                        | What you cannot do                                                                                                                                                                                                                    |
+| :-------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Project owner                     | Set the project's purpose, terms and funding. Nominate the project manager. Own the expected outputs.                                                              | Sign for your organisation unless it gives you that authority. Approve your own access or exports.                                                                                                                                    |
+| Project manager                   | Coordinate the project and request changes. Invite people or manage roles only with separately delegated capabilities.                                             | Read project data because you manage it. Approve your own requests or widen your own scope.                                                                                                                                           |
+| Data custodian                    | Run dataset intake. Approve, return or reject each import under the data owner's agreement.                                                                        | Decide an import you requested. Gain researcher access to an instance by custody alone.                                                                                                                                               |
+| Data owner or delegate            | Hold release authority for outputs under the data agreement.                                                                                                       | Act beyond the terms of the data agreement. Decide dataset access or set conditions. The data controller agrees access, and the asset owner sets conditions.                                                                          |
+| Researcher                        | Work in an instance at Controlled (L1). Submit results for review.                                                                                                 | Release results. Approve datasets. At Locked (L2) or Enhanced (L3), use an interactive researcher session.                                                                                                                            |
+| Output checker                    | Decide whether to approve, return or reject each staged output.                                                                                                    | Check your own request, or an output from an agent you sponsor. Release an output on your own authority. At Controlled (L1), only separately delegated checkers can release. At Locked (L2) or Enhanced (L3), no checker can release. |
+| Agent sponsor                     | Create and revoke an agent, and be accountable for what it does.                                                                                                   | Check the output of an agent you sponsor.                                                                                                                                                                                             |
+| Workspace or permissions operator | Create empty instances (workspace operator), or administer invitations and delegated role changes (permissions operator), when separately granted that capability. | Gain editor access, decide data use, grant yourself access or exceed delegated authority. Operating the project grants none of these.                                                                                                 |
 
 &nbsp;
 
@@ -27,21 +27,21 @@ Nuvolos records these assignments and changes to assignment status. It does not 
 
 A named capability must be granted for the relevant scope. A governance title alone is not a grant. A manager can hold separately delegated capabilities. Doing so does not make them an ordinary space administrator or give them data access. The adopted profile's combination rules apply. Required independent decisions, identity binding, acceptance and dataset approvals still apply. In this matrix, the technical administrator is the bounded technical-administration bundle. It creates empty instances as the workspace operator in the setup steps. It is not the ordinary product's (L0) broad space administrator.
 
-| Action | Responsible capability or assignment | Boundary |
-| :---- | :---- | :---- |
-| Create an instance | Workspace lifecycle, exercised by the technical administrator. A manager may hold it only where the profile permits the combination. | Creates an empty instance. It grants no automatic editor or data access. L3 separates technical administration from the project manager. |
-| Invite people | Membership administration. A project manager may hold it if delegated. | Invitations are scoped and bound to an identity. Sending one is not a grant. |
-| Change instance roles | Membership administration, for the delegated grant types and instance. | Required independent approvals and acceptance come before a grant. No one can self-grant or self-escalate. A proposed L3 widening grant needs a second authorisation. |
-| Start applications | A separately authorised research or data-use capability, plus instance editor access at Controlled (L1). | Administration does not confer content access. In L2 and L3 mode, researchers use batch jobs, not interactive sessions. |
-| Request import | An eligible project participant, within their authorised request scope. | The requester cannot approve their own import. |
-| Approve import | An independently authorised destination custodian or delegate. | Source export and destination import decisions are separate. Both are bound to a version. At L2, data-owner approval is required new datasets. At L3, custodian and data-owner decisions are separate. |
-| Submit output | An authorised researcher, or another eligible requester. | At L1, outputs use the approved working path. In L2 and L3 mode, batch outputs are staged for review. Submitting does not release an output. |
-| Check output | An assigned, qualified independent checker. | A checker cannot review their own request or an agent output they sponsor. L1 needs one checker. L2 and L3 mode needs two independent checkers, and both must approve. |
-| Authorise release | The data owner or an authorised delegate. | Checker assignment alone gives no release authority. At L1, a separately delegated, eligible checker may release. L2 and L3 policy requires a release authoriser who is neither checker. The recipient must be authorised. |
-| Change protection level | An authorised project request and policy decision. | A reduction needs a new space at the lower protection level, plus a governed migration. There is no in-place downgrade. |
-| Enable resources | Scoped resource administration within the approved envelope. A manager may hold it only where the profile permits. | Funding and pool mapping need their own authority. Resource changes grant no data access. L3 separates technical administration from the project manager. |
-| View effective access | A scoped assurance or roster-view capability. A manager may hold it if delegated. | Shows origins and residual access. It grants no access to project content. |
-| Close project | An authorised close-out executor, after the project owner's and data owner's disposition decisions. | The executor and the requester cannot approve their own deletion. L3 policy adds a second authorisation. Revocation and per-plane disposition follow policy. |
+| Action                  | Responsible capability or assignment                                                                                                 | Boundary                                                                                                                                                                                                                   |
+| :---------------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create an instance      | Workspace lifecycle, exercised by the technical administrator. A manager may hold it only where the profile permits the combination. | Creates an empty instance. It grants no automatic editor or data access. L3 separates technical administration from the project manager.                                                                                   |
+| Invite people           | Membership administration. A project manager may hold it if delegated.                                                               | Invitations are scoped and bound to an identity. Sending one is not a grant.                                                                                                                                               |
+| Change instance roles   | Membership administration, for the delegated grant types and instance.                                                               | Required independent approvals and acceptance come before a grant. No one can self-grant or self-escalate. A proposed L3 widening grant needs a second authorisation.                                                      |
+| Start applications      | A separately authorised research or data-use capability, plus instance editor access at Controlled (L1).                             | Administration does not confer content access. In L2 and L3 mode, researchers use batch jobs, not interactive sessions.                                                                                                    |
+| Request import          | An eligible project participant, within their authorised request scope.                                                              | The requester cannot approve their own import.                                                                                                                                                                             |
+| Approve import          | An independently authorised destination custodian or delegate.                                                                       | Source export and destination import decisions are separate. Both are bound to a version. At L2, data-owner approval is required new datasets. At L3, custodian and data-owner decisions are separate.                     |
+| Submit output           | An authorised researcher, or another eligible requester.                                                                             | At L1, outputs use the approved working path. In L2 and L3 mode, batch outputs are staged for review. Submitting does not release an output.                                                                               |
+| Check output            | An assigned, qualified independent checker.                                                                                          | A checker cannot review their own request or an agent output they sponsor. L1 needs one checker. L2 and L3 mode needs two independent checkers, and both must approve.                                                     |
+| Authorise release       | The data owner or an authorised delegate.                                                                                            | Checker assignment alone gives no release authority. At L1, a separately delegated, eligible checker may release. L2 and L3 policy requires a release authoriser who is neither checker. The recipient must be authorised. |
+| Change protection level | An authorised project request and policy decision.                                                                                   | A reduction needs a new space at the lower protection level, plus a governed migration. There is no in-place downgrade.                                                                                                    |
+| Enable resources        | Scoped resource administration within the approved envelope. A manager may hold it only where the profile permits.                   | Funding and pool mapping need their own authority. Resource changes grant no data access. L3 separates technical administration from the project manager.                                                                  |
+| View effective access   | A scoped assurance or roster-view capability. A manager may hold it if delegated.                                                    | Shows origins and residual access. It grants no access to project content.                                                                                                                                                 |
+| Close project           | An authorised close-out executor, after the project owner's and data owner's disposition decisions.                                  | The executor and the requester cannot approve their own deletion. L3 policy adds a second authorisation. Revocation and per-plane disposition follow policy.                                                               |
 
 &nbsp;
 
@@ -70,10 +70,10 @@ Nuvolos records these decisions. It does not create legal authority for them.
 
 A per-person instance suits one researcher's individual analysis. A shared instance suits several approved people who work on the same data. Each editor signs in with their own login.
 
-| Pattern | Use it when | Created by | Who holds the editor role |
-| :---- | :---- | :---- | :---- |
-| Per-person instance | One researcher needs their own analysis | Workspace lifecycle capability, for a named researcher | That researcher, after required approval |
-| Shared instance | Several approved people work on the same data | Workspace lifecycle capability | Each approved person, with their own login |
+| Pattern             | Use it when                                   | Created by                                             | Who holds the editor role                  |
+| :------------------ | :-------------------------------------------- | :----------------------------------------------------- | :----------------------------------------- |
+| Per-person instance | One researcher needs their own analysis       | Workspace lifecycle capability, for a named researcher | That researcher, after required approval   |
+| Shared instance     | Several approved people work on the same data | Workspace lifecycle capability                         | Each approved person, with their own login |
 
 Keep one protected space per project. Use separate project spaces where the permitted data differs between people. An instance organises work. It is not a separate security boundary.
 
@@ -81,13 +81,13 @@ Keep one protected space per project. Use separate project spaces where the perm
 
 An authorised membership operator (the permissions operator in the roles table) invites people. An authorised workspace operator creates instances. A manager may hold either capability if delegated. Holding it gives no data access. An invitation is not a grant. The intended person must accept, and all required project and dataset decisions must be in place.
 
-| Person | Role to give | Note |
-| :---- | :---- | :---- |
-| Researcher at Controlled (L1) | Instance editor, in their own or a shared instance | Only editors run applications and change files. |
-| Researcher at Locked (L2) or Enhanced (L3) | No interactive instance role | Submit batch jobs instead. |
-| Data custodian | Dataset-space permissions and import decision rights, only as needed | Custody does not grant researcher access. |
-| Output checker | Review path only | At Locked or Enhanced, the checker uses a contained reviewer session. |
-| Project manager | Project coordination, plus only the separately delegated membership, lifecycle or resource capabilities | Management gives no instance-data access. Any researcher access is separately authorised. |
+| Person                                     | Role to give                                                                                            | Note                                                                                      |
+| :----------------------------------------- | :------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
+| Researcher at Controlled (L1)              | Instance editor, in their own or a shared instance                                                      | Only editors run applications and change files.                                           |
+| Researcher at Locked (L2) or Enhanced (L3) | No interactive instance role                                                                            | Submit batch jobs instead.                                                                |
+| Data custodian                             | Dataset-space permissions and import decision rights, only as needed                                    | Custody does not grant researcher access.                                                 |
+| Output checker                             | Review path only                                                                                        | At Locked or Enhanced, the checker uses a contained reviewer session.                     |
+| Project manager                            | Project coordination, plus only the separately delegated membership, lifecycle or resource capabilities | Management gives no instance-data access. Any researcher access is separately authorised. |
 
 To invite a researcher to a per-person instance:
 
@@ -100,15 +100,15 @@ To invite a researcher to a per-person instance:
 
 An invitation moves through the states below. Only the grant active state gives access.
 
-| State | Meaning | Next states |
-| :---- | :---- | :---- |
-| Created | The invitation exists with its role, validity and maximum number of accepts. It has not been sent. | Sent, Send failed |
-| Sent | The invitation reached the recipient. It is not a grant. | Accepting, Revoked, Expired |
-| Send failed | The invitation did not reach the recipient. It grants nothing. | None. Create a new invitation. |
-| Accepting | Each acceptance is recorded in a response row, up to the maximum number of accepts. | Grant active, Revoked, Expired |
-| Grant active | The named recipient accepted. All required decisions and grant conditions are in place. The origin shows as explicit. | Revoked, Expired |
-| Expired | The invitation expiry stops further acceptance. A grant expires separately, at its recorded end time. | None |
-| Revoked | An authorised membership operator revoked the invitation or grant, and recorded a reason. Revoking an invitation alone does not undo an active grant. | None |
+| State        | Meaning                                                                                                                                               | Next states                    |
+| :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- |
+| Created      | The invitation exists with its role, validity and maximum number of accepts. It has not been sent.                                                    | Sent, Send failed              |
+| Sent         | The invitation reached the recipient. It is not a grant.                                                                                              | Accepting, Revoked, Expired    |
+| Send failed  | The invitation did not reach the recipient. It grants nothing.                                                                                        | None. Create a new invitation. |
+| Accepting    | Each acceptance is recorded in a response row, up to the maximum number of accepts.                                                                   | Grant active, Revoked, Expired |
+| Grant active | The named recipient accepted. All required decisions and grant conditions are in place. The origin shows as explicit.                                 | Revoked, Expired               |
+| Expired      | The invitation expiry stops further acceptance. A grant expires separately, at its recorded end time.                                                 | None                           |
+| Revoked      | An authorised membership operator revoked the invitation or grant, and recorded a reason. Revoking an invitation alone does not undo an active grant. | None                           |
 
 Revoking an instance role stops that person's running applications. It also schedules cleanup of their home folder.
 
@@ -124,13 +124,13 @@ A researcher can request a role, then track or withdraw a pending request. Who r
 
 Review access at the intervals your policy sets. The effective-access view shows who can reach the project, each dataset and each instance. It shows the origin of each grant.
 
-| Origin | What it means | How you act on it |
-| :---- | :---- | :---- |
-| Explicit | A direct grant to the person on an instance or space | Change or revoke it on the member list. |
-| Derived | Access that follows from another permitted assignment | Review and change its source. A protected TRE does not derive editor access from administration alone. |
-| Automatic | Access created by a permitted automatic assignment | Check its source and resulting effect. Protected spaces do not create broad administrator or content grants automatically. |
-| Approval | A recorded project or dataset decision required for a separately scoped grant | Confirm the decision still stands. Approval alone is not a platform grant. |
-| Unknown | The platform cannot compute the origin | Investigate before you sign off the review. |
+| Origin    | What it means                                                                 | How you act on it                                                                                                          |
+| :-------- | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| Explicit  | A direct grant to the person on an instance or space                          | Change or revoke it on the member list.                                                                                    |
+| Derived   | Access that follows from another permitted assignment                         | Review and change its source. A protected TRE does not derive editor access from administration alone.                     |
+| Automatic | Access created by a permitted automatic assignment                            | Check its source and resulting effect. Protected spaces do not create broad administrator or content grants automatically. |
+| Approval  | A recorded project or dataset decision required for a separately scoped grant | Confirm the decision still stands. Approval alone is not a platform grant.                                                 |
+| Unknown   | The platform cannot compute the origin                                        | Investigate before you sign off the review.                                                                                |
 
 Follow this procedure for each review:
 
@@ -151,18 +151,18 @@ In L0, space member list shows direct members and their instance roles. The inst
 
 ## Resources and budgets
 
-Budgets are financial limits. The platform has balances, gates and refusal behaviour. It has no documented spend cap or threshold alert. Whether a reached budget stops running work or refuses new work depends on the deployment's configuration and the resource type. An allowance shown to a project is not automatically a hard limit. A budget does not reserve capacity. A funded project can still find that capacity unavailable.
+Budgets are financial limits. The platform has balances, gates and refusal behaviour. By default, reached budget limits stop running work and refuses new work, with appropriate prior warnings in place. An allowance shown to a project is a hard limit on pay-as-you-go type costs. A budget does not reserve capacity. 
 
 Accounts and wallets hold the budgets, accounts are cost centres, wallets are specialised resource budgets within accounts. Resources mapped to an account/wallet charge their usage against them. A project is not a budget object. It draws on the accounts/wallets mapped to its space.
 
-| Role | Can do | Cannot do |
-| :---- | :---- | :---- |
-| Account/wallet manager | Set budgets. Enable or disable approved computer sizes for the pool. Transfer credits between eligible accounts/wallets they manage. Link resource accounts. | Change a project mapping alone, without project-side authority. Read protected data because they fund it. |
-| Resource manager | Enable approved elastic sizes and GPU resources. Manage quotas within the project's authorised envelope. | Change cluster placement, capacity or security boundaries, or gain project-data access. |
-| Project manager | Request resource and quota changes. Apply changes within the envelope only with separately delegated resource capability. | Approve their own request. |
-| Project owner | Propose the resource envelope and funding route. | Approve their own governed requests. |
-| Instance editor | Use enabled sizes. In research spaces, change an application's size within the included range. | Enable sizes or GPU resources for the space. |
-| Infrastructure operator | Provision capacity and change clusters, node pools and dedicated placement, as the agreement assigns. | Read protected data outside break-glass. |
+| Role                    | Can do                                                                                                                                                       | Cannot do                                                                                                 |
+| :---------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| Account/wallet manager  | Set budgets. Enable or disable approved computer sizes for the pool. Transfer credits between eligible accounts/wallets they manage. Link resource accounts. | Change a project mapping alone, without project-side authority. Read protected data because they fund it. |
+| Resource manager        | Enable approved elastic sizes and GPU resources. Manage quotas within the project's authorised envelope.                                                     | Change cluster placement, capacity or security boundaries, or gain project-data access.                   |
+| Project manager         | Request resource and quota changes. Apply changes within the envelope only with separately delegated resource capability.                                    | Approve their own request.                                                                                |
+| Project owner           | Propose the resource envelope and funding route.                                                                                                             | Approve their own governed requests.                                                                      |
+| Instance editor         | Use enabled sizes. In research spaces, change an application's size within the included range.                                                               | Enable sizes or GPU resources for the space.                                                              |
+| Infrastructure operator | Provision capacity and change clusters, node pools and dedicated placement, as the agreement assigns.                                                        | Read protected data outside break-glass.                                                                  |
 
 The mapping rules are these:
 
@@ -195,10 +195,10 @@ Enabling a resource never widens anyone's data access.
 
 Open (L0) is ordinary Nuvolos and is not a trusted research environment. A project moves to a higher level through re-approval. A project moves to a lower level only through a new space.
 
-| Direction | What happens | Who acts |
-| :---- | :---- | :---- |
+| Direction                                           | What happens                                                                                                                             | Who acts                                                                                                                                                  |
+| :-------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Up, for example from Controlled (L1) to Locked (L2) | Affected approvals are reviewed again. Access and data are re-attested. The new level applies to every instance, workload and data path. | The project owner requests. The data controller and asset owner re-approve within their authority. At L3, the infrastructure operator confirms placement. |
-| Down | The level never goes down in place. A new space at the lower level receives only approved material, moved through the airlocks. | The project owner requests. Each item moves under its own approval. |
+| Down                                                | The level never goes down in place. A new space at the lower level receives only approved material, moved through the airlocks.          | The project owner requests. Each item moves under its own approval.                                                                                       |
 
 To move a project up:
 
@@ -229,13 +229,13 @@ You approve, return or reject each import request. Checks assist your decision, 
 
 Each request arrives in quarantine. Quarantine is a per-request area that no project workload can read, mount or execute. Nothing in quarantine is visible to the project's instances.
 
-| Item | What it shows |
-| :---- | :---- |
-| Request | What is being brought in, where it comes from, why the project needs it, the intended use, any licence or terms, and the dataset name and version it becomes. |
-| Quarantined bytes | The staged files, held where project compute cannot reach them. |
-| Check results | Each configured check, its outcome, and any item it could not inspect. |
-| Status labels | "Not scanned", "not covered" or "check not performed". A missing check never appears as a pass. |
-| Requester | The person who submitted the request. You cannot decide a request you submitted. |
+| Item              | What it shows                                                                                                                                                 |
+| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Request           | What is being brought in, where it comes from, why the project needs it, the intended use, any licence or terms, and the dataset name and version it becomes. |
+| Quarantined bytes | The staged files, held where project compute cannot reach them.                                                                                               |
+| Check results     | Each configured check, its outcome, and any item it could not inspect.                                                                                        |
+| Status labels     | "Not scanned", "not covered" or "check not performed". A missing check never appears as a pass.                                                               |
+| Requester         | The person who submitted the request. You cannot decide a request you submitted.                                                                              |
 
 Configured checks can include malware and security scanning, format and integrity checks, metadata or disclosure pre-screening, and licence and category tagging. Each result is recorded against the request.
 
@@ -252,12 +252,12 @@ A required check that fails or cannot run blocks promotion. The request is held 
 7. At Locked (L2), confirm that the data owner has approved any new dataset. At Enhanced (L3), confirm that a separate data-owner decision is recorded. Step 7 reflects the proposed profile policy.  
 8. Decide, and record your reasons.
 
-| Decision | Effect |
-| :---- | :---- |
-| Approve | Publishes the named read-only version for the project. |
-| Return for changes | Keeps the request unpublished. The requester fixes it and resubmits. |
-| Reject | Closes the request with reasons. The quarantine record is kept. |
-| Withdraw (requester only) | Closes the request. Nothing is published. |
+| Decision                  | Effect                                                               |
+| :------------------------ | :------------------------------------------------------------------- |
+| Approve                   | Publishes the named read-only version for the project.               |
+| Return for changes        | Keeps the request unpublished. The requester fixes it and resubmits. |
+| Reject                    | Closes the request with reasons. The quarantine record is kept.      |
+| Withdraw (requester only) | Closes the request. Nothing is published.                            |
 
 Your authority comes from the data owner's agreement, not from a platform role. If you are not the data owner, you must be a named delegate with a recorded scope.
 
@@ -290,12 +290,12 @@ If you have a conflict of interest, declare it. Step aside where your organisati
 
 ### What the checker screen shows
 
-| Panel | What it gives you | How to use it |
-| :---- | :---- | :---- |
-| Frozen manifest | Every staged item with its checksum, written once at submission | Confirm that the manifest lists everything staged. |
-| Check results | Disclosure checks run against the manifest, with each check's status | Read them as advisory evidence only. |
-| Release comparison | Earlier releases from the same project | Look for differencing across releases. |
-| Staged content | The exact bytes listed in the manifest | Review them against the disclosure policy. |
+| Panel              | What it gives you                                                    | How to use it                                      |
+| :----------------- | :------------------------------------------------------------------- | :------------------------------------------------- |
+| Frozen manifest    | Every staged item with its checksum, written once at submission      | Confirm that the manifest lists everything staged. |
+| Check results      | Disclosure checks run against the manifest, with each check's status | Read them as advisory evidence only.               |
+| Release comparison | Earlier releases from the same project                               | Look for differencing across releases.             |
+| Staged content     | The exact bytes listed in the manifest                               | Review them against the disclosure policy.         |
 
 ### Checking steps
 
@@ -309,23 +309,23 @@ If you have a conflict of interest, declare it. Step aside where your organisati
 
 ### Decisions and reasons
 
-| Decision | Effect on the request | Effect on release |
-| :---- | :---- | :---- |
-| Approve | The exact frozen content may go to an authorised recipient. | Release may proceed under the data owner's authority. |
-| Return for changes | The request goes back to the requester with reasons. | Nothing is released. |
-| Reject | The request closes with reasons. The record is kept. | Nothing is released. |
+| Decision           | Effect on the request                                       | Effect on release                                     |
+| :----------------- | :---------------------------------------------------------- | :---------------------------------------------------- |
+| Approve            | The exact frozen content may go to an authorised recipient. | Release may proceed under the data owner's authority. |
+| Return for changes | The request goes back to the requester with reasons.        | Nothing is released.                                  |
+| Reject             | The request closes with reasons. The record is kept.        | Nothing is released.                                  |
 
 Record reasons for every return and every rejection. Requesters see them. A refused export route also gives a reason and opens a submission prefilled with the refused items. Nuvolos records both the refusal and the submission.
 
 ### Controlled (L1) compared with Locked (L2) and Enhanced (L3)
 
-|  | Controlled (L1) | Locked (L2) and Enhanced (L3) |
-| :---- | :---- | :---- |
-| Checkers needed | At least one qualified, independent checker | At least two qualified, independent checkers, both approving |
-| Your environment | An ordinary project session under your own platform identity | Contained reviewer session. You inspect the content and cannot download it. |
-| Session controls | Screen-only streaming, with the controls described under Session controls at Controlled | The same, with paste-in also blocked |
-| If checkers disagree | Not applicable. One checker decides. | Nothing is released until both are satisfied, or the request is returned or rejected. |
-| Release authority | Data owner or delegate, or an independently delegated eligible checker | Data owner or authorised delegate, who is neither checker for that output |
+|                      | Controlled (L1)                                                                         | Locked (L2) and Enhanced (L3)                                                         |
+| :------------------- | :-------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------ |
+| Checkers needed      | At least one qualified, independent checker                                             | At least two qualified, independent checkers, both approving                          |
+| Your environment     | An ordinary project session under your own platform identity                            | Contained reviewer session. You inspect the content and cannot download it.           |
+| Session controls     | Screen-only streaming, with the controls described under Session controls at Controlled | The same, with paste-in also blocked                                                  |
+| If checkers disagree | Not applicable. One checker decides.                                                    | Nothing is released until both are satisfied, or the request is returned or rejected. |
+| Release authority    | Data owner or delegate, or an independently delegated eligible checker                  | Data owner or authorised delegate, who is neither checker for that output             |
 
 ### Two checkers at Locked (L2) or Enhanced (L3)
 
@@ -352,27 +352,25 @@ Locked or Enhanced needs two checkers, and both must approve. A single approval 
 
 ## Session controls at Controlled (L1)
 
-At Controlled (L1), each interactive app runs in its own container. A remote-desktop sidecar renders the app, and only the screen reaches the user's browser. The sidecar is a named, owned, unprivileged component in the same workload. It runs the app in an isolated browser or desktop session.
+At Controlled (L1), each interactive app runs in its own container. A remote-desktop sidecar renders the app and streams its screen to the user's browser. The sidecar is a named, owned, unprivileged component in the same workload. It runs the app in an isolated browser or desktop session.
 
 The app listens only inside the workload. The sidecar is the only part of the workload that can be reached. The direct address of the app is not exposed.
 
-| Control | Default |
-| :---- | :---- |
-| Copy-out, from the session to the user's device | Blocked on the sidecar channel. This cannot be changed. |
-| Paste-in, into the session | Allowed up to a size limit. Every attempt is logged. Project policy can block, limit or allow it. |
-| File transfer, in either direction | Blocked. Files move only through the import and output airlocks. |
-| Downloads and printing from the in-session browser | Disabled |
-| Direct address of the app | Not exposed |
+| Control                                                    | Default                                                                                           |
+| :--------------------------------------------------------- | :------------------------------------------------------------------------------------------------ |
+| Copy-out from the application session to the user's device | Blocked. This cannot be changed.                                                                  |
+| Paste-in, into the session                                 | Allowed up to a size limit. Every attempt is logged. Project policy can block, limit or allow it. |
+| File transfer, in either direction                         | Blocked. Files move only through the import and output airlocks.                                  |
+| Downloads and printing from the in-session browser         | Disabled                                                                                          |
+| Direct address of the app                                  | Not exposed                                                                                       |
 
-Every clipboard and transfer attempt is logged with its direction, size and outcome. The log never records the content.
+On covered channels, clipboard and transfer attempts are logged with direction, size and outcome, never content.
 
-At Locked (L2) or Enhanced (L3), the contained reviewer session uses the same sidecar. Paste-in is also blocked there. Output checkers inspect the staged content in that session. Only the release leaves it.
-
-The sidecar blocks copy-out on its channel.&nbsp;
+At Locked (L2) or Enhanced (L3), the contained reviewer session uses the same sidecar. Paste-in is also blocked there. Output checkers inspect the staged content in that session. The governed route for output to leave is release through the output airlock.
 
 ### Limits
 
-- The sidecar controls the clipboard and transfers. It does not control pixels. Screenshots, screen recording, photographs, retyping and on-device text recognition remain possible.  
+- The sidecar controls clipboard and transfers on covered channels. It does not control pixels. Screenshots, screen recording, photographs, retyping and on-device text recognition remain possible.  
 - Streaming adds latency to interactive work.  
 - Paste-in brings data into the project.  
 - An app that cannot run behind the sidecar is not offered at Controlled (L1), unless an exception is recorded on the deployment's verdict page.  
@@ -384,13 +382,13 @@ Where the deployment's evidence confirms it, Nuvolos refuses these routes: file 
 
 Use this table when a request stops moving:
 
-| Situation | What happens | What you do |
-| :---- | :---- | :---- |
-| A checker is unavailable | The request waits or escalates under policy. The output stays inside the project. | Assign another checker or escalate. |
-| A request is overdue | It escalates or expires. Nothing is released automatically. | Escalate. Timeouts never release content. |
-| A check did not run | The request shows "check not performed". | Retry the check, supply an alternative, or decide with that status visible. |
-| A delivery fails | Nuvolos records it as not delivered. | Reissue the link through the governed flow. |
-| A recipient is not authorised | No link is issued. | Confirm the recipient's authority under the data owner's policy. |
+| Situation                     | What happens                                                                      | What you do                                                                 |
+| :---------------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| A checker is unavailable      | The request waits or escalates under policy. The output stays inside the project. | Assign another checker or escalate.                                         |
+| A request is overdue          | It escalates or expires. Nothing is released automatically.                       | Escalate. Timeouts never release content.                                   |
+| A check did not run           | The request shows "check not performed".                                          | Retry the check, supply an alternative, or decide with that status visible. |
+| A delivery fails              | Nuvolos records it as not delivered.                                              | Reissue the link through the governed flow.                                 |
+| A recipient is not authorised | No link is issued.                                                                | Confirm the recipient's authority under the data owner's policy.            |
 
 ## Close out a project
 
@@ -404,14 +402,14 @@ Close-out ends access, disposes of each data plane under policy, and records wha
 6. **Collect evidence.** Gather the decision records, the disposition of each plane and the residual windows.  
 7. **Delete the space.** An authorised close-out executor deletes the space after the required independent disposition and deletion decisions.
 
-| Data plane | What to record | Residual |
-| :---- | :---- | :---- |
-| Instance files (Workspace, Personal and Application areas) | Deleted, archived or retained | \- |
-| Tables | Deleted or retained, covering both the metadata and the table backend | Residual until the date recorded for the backend. |
-| Bulk storage shares | Share disposition | Residual until the date recorded. |
-| Snapshots | Deleted or retained | Residual until the date recorded. |
-| Backups | Retention window | Residual until the date recorded at close-out. |
-| External-store registrations | Registration removed. The external copy is the organisation's. | The organisation-held copy is outside platform control. |
+| Data plane                                                 | What to record                                                        | Residual                                                |
+| :--------------------------------------------------------- | :-------------------------------------------------------------------- | :------------------------------------------------------ |
+| Instance files (Workspace, Personal and Application areas) | Deleted, archived or retained                                         | \-                                                      |
+| Tables                                                     | Deleted or retained, covering both the metadata and the table backend | Residual until the date recorded for the backend.       |
+| Bulk storage shares                                        | Share disposition                                                     | Residual until the date recorded.                       |
+| Snapshots                                                  | Deleted or retained                                                   | Residual until the date recorded.                       |
+| Backups                                                    | Retention window                                                      | Residual until the date recorded at close-out.          |
+| External-store registrations                               | Registration removed. The external copy is the organisation's.        | The organisation-held copy is outside platform control. |
 
 Retention periods come from your deployment's policy and data agreements. Nuvolos does not invent them.
 
@@ -455,13 +453,13 @@ The example below uses only generic roles and generic values.
 
 ## Limits
 
-- Role labels are not confidentiality guarantees. Nuvolos does not confine the viewer or observer role to reading on every route, so do not rely on either role as a read barrier.  
+- Role labels are not confidentiality guarantees. Check effective access and route enforcement; do not rely on the viewer or observer role as a read barrier without deployment evidence.  
 - At L0, a space administrator can read, change and act across all instances. TRE levels replace this default with separately authorised bounded capabilities.  
 - Whether organisation managers can read project instances depends on effective access. Check the effective-access view for your organisation.  
 - At Controlled (L1), the checker works in an ordinary project session behind the remote desktop, not in a contained reviewer session.  
 - At L0, invitation acceptance warns on a named-email mismatch rather than refusing it. TRE levels require identity-bound acceptance.  
 - At L0, revoking an organisation role does not remove space or instance roles it created automatically earlier. At TRE levels, the platform explicitly requires decisions on each sub-role.  
-- Personal areas are not captured in snapshots. Shared-mode home folders are shared.&nbsp;  
+- Personal areas are not captured in snapshots. Check coverage and restore behaviour for the deployment. Shared-mode home folders are shared across authorized users.
 - Infrastructure operators can technically reach project data. Every such access runs as break-glass. It needs a ticket, a second approver, a scope and an expiry. Your tenant receives a notification.  
 - The audit trail is tamper-evident, not tamper-proof. Decision receipts are recorded but unsigned. The trail covers only events recorded since capture started.  
 - Platform roles do not create legal authority. Your organisation's agreements provide it.  

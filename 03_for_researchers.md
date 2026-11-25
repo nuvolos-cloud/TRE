@@ -22,14 +22,14 @@ A project never moves to a lower level in place. Moving to a higher level needs 
 
 Your level decides which tools, sessions, connections and AI services you can use. If you are not sure which level applies, ask your project manager. The table compares the levels on the points you meet most often.
 
-|  | Controlled (L1) | Locked (L2) | Enhanced (L3) |
-| :---- | :---- | :---- | :---- |
-| Sessions | Interactive applications from the catalogue, behind the remote-desktop sidecar | No interactive sessions; batch jobs only | Same as Locked (L2) |
-| Software | Approved catalogue; package requests go through a review route | Approved, pinned versions; no self-service installs | Same as Locked (L2) |
-| Internet | Only destinations the project policy names; some paths not covered | None; only approved internal services | Same as Locked (L2) |
-| Data | Approved datasets and project working areas | Approved, versioned datasets, mounted read-only | Same as Locked (L2) |
-| AI | Catalogue models; external endpoints only with approval from the project and the data owner; governed agents | Approved AI and machine-learning code inside batch jobs; no outside model or API calls; no agents | Same as Locked (L2) |
-| Outputs | Airlock; at least one qualified independent checker | Airlock; two independent checkers, both approve | Same as Locked (L2) |
+|          | Controlled (L1)                                                                                              | Locked (L2)                                                                                       | Enhanced (L3)       |
+| :------- | :----------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------ | :------------------ |
+| Sessions | Interactive applications from the catalogue, behind the remote-desktop sidecar                               | No interactive sessions; batch jobs only                                                          | Same as Locked (L2) |
+| Software | Approved catalogue; package requests go through a review route                                               | Approved, pinned versions; no self-service installs                                               | Same as Locked (L2) |
+| Internet | Only destinations the project policy names; some paths not covered                                           | None; only approved internal services                                                             | Same as Locked (L2) |
+| Data     | Approved datasets and project working areas                                                                  | Approved, versioned datasets, mounted read-only                                                   | Same as Locked (L2) |
+| AI       | Catalogue models; external endpoints only with approval from the project and the data owner; governed agents | Approved AI and machine-learning code inside batch jobs; no outside model or API calls; no agents | Same as Locked (L2) |
+| Outputs  | Airlock; at least one qualified independent checker                                                          | Airlock; two independent checkers, both approve                                                   | Same as Locked (L2) |
 
 &nbsp;
 
@@ -41,17 +41,17 @@ Your working environment has several storage areas, and each one behaves differe
 
 ### Storage areas
 
-| Area | Shared with | Survives restart | In snapshots | Use for |
-| :---- | :---- | :---- | :---- | :---- |
-| Workspace | Everyone using the instance | Yes | Yes | Shared project files and team working data |
-| Personal | Yours alone in that instance by default. In shared-mode applications, the home area is shared by all users. | Yes | Yes | Your own notebooks, scripts and drafts |
-| Application | Everyone using that application in the instance | Yes | Yes, with the application configuration and installed packages | Installed packages and application settings |
-| Temporary (ephemeral) | Only the running session | No. Erased when the session stops. Keep anything you need in a persistent area. | No | Scratch files during a computation |
-| Large File Storage, where the deployment uses it | Applications that mount it | Set per deployment | No | Very large, mostly static data. Retention is set per deployment. |
+| Area                                             | Shared with                                                                                                 | Survives restart                                                                | In snapshots                                                   | Use for                                                          |
+| :----------------------------------------------- | :---------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :------------------------------------------------------------- | :--------------------------------------------------------------- |
+| Workspace                                        | Everyone using the instance                                                                                 | Yes                                                                             | Yes                                                            | Shared project files and team working data                       |
+| Personal                                         | Yours alone in that instance by default. In shared-mode applications, the home area is shared by all users. | Yes                                                                             | Supported contents can be captured                             | Your own notebooks, scripts and drafts                           |
+| Application                                      | Everyone using that application in the instance                                                             | Yes                                                                             | Yes, with the application configuration and installed packages | Installed packages and application settings                      |
+| Temporary (ephemeral)                            | Only the running session                                                                                    | No. Erased when the session stops. Keep anything you need in a persistent area. | No                                                             | Scratch files during a computation                               |
+| Large File Storage, where the deployment uses it | Applications that mount it                                                                                  | Set per deployment                                                              | No                                                             | Very large, mostly static data. Retention is set per deployment. |
 
 &nbsp;
 
-Personal areas can be captured in snapshots, and space administrators can reach them. They are not a confidentiality boundary.
+Personal areas are not captured in snapshots. However, they are not a confidentiality boundary. 
 
 Workspace, Personal and Application areas persist across application restarts. Temporary storage does not, so save outputs to a persistent area during long computations.
 
@@ -69,16 +69,18 @@ Before you work, complete your organisation's onboarding and access requirements
 
 Instance roles decide what the platform lets you do. An instance role is the role you hold on a specific instance.
 
-| Activity | Editor | Viewer | Observer |
-| :---- | :---- | :---- | :---- |
-| Read files | Yes | Yes | No |
-| List files | Yes | Yes | Yes |
-| Download files | Yes (L0 only) | Yes (L0 only) | No |
-| Query tables | Yes | Yes | No |
-| Modify files | Yes (L0,L1), limited (L2,L3) | No | No |
-| Create snapshots | Yes | No | No |
-| Start applications | Yes (L0, L1 approved catalogue), No (L2,L3 batch only) | No | No |
-| Invite users, create instances, change space configuration | No | No | No |
+| Activity                                                   | Editor                                                 | Viewer        | Observer                       |
+| :--------------------------------------------------------- | :----------------------------------------------------- | :------------ | :----------------------------- |
+| Read files                                                 | Yes                                                    | Yes           | Root `README.md` is documented |
+| List files                                                 | Yes                                                    | Yes           | Not documented                 |
+| Download files                                             | Yes (L0 only)                                          | Yes (L0 only) | No                             |
+| Query tables                                               | Yes                                                    | Yes           | No                             |
+| Modify files                                               | Yes (L0,L1), limited (L2,L3)                           | No            | No                             |
+| Create snapshots                                           | Yes                                                    | No            | No                             |
+| Start applications                                         | Yes (L0, L1 approved catalogue), No (L2,L3 batch only) | No            | No                             |
+| Invite users, create instances, change space configuration | No                                                     | No            | No                             |
+
+Observer exists only in dataset spaces. Its [documented capabilities](https://docs.nuvolos.com/concepts/roles-secrets-and-identity/roles) are viewing the root Workspace `README.md` and requesting a viewer role.
 
 &nbsp;
 
@@ -91,23 +93,23 @@ In Controlled (L1), no application interface reaches your browser directly. A re
 1. You start an application. It runs in its own container inside the project.  
 2. The application listens only inside the workload. Only the sidecar can reach it.  
 3. The sidecar shows the application in an isolated browser for web apps, or in a desktop session for desktop apps.  
-4. You see the screen. The sidecar streams only the screen to you. Clipboard and file movement pass through separate controls.  
-5. Every clipboard or transfer attempt is logged with its direction, size and outcome. The log never records the content.
+4. You see the screen. The sidecar streams the screen to you. Clipboard and file movement pass through separate controls.  
+5. On covered channels, clipboard and transfer attempts are logged with direction, size and outcome, never content. Check deployment evidence for channel coverage.
 
 The table shows what you can and cannot move.
 
-| Action | Result | What to do instead |
-| :---- | :---- | :---- |
-| Copy text out of the session to your device | Capped and logged on browser desktops, not blocked. Other channels are uncovered. The setting cannot be changed. | Send results through an output request. Do not retype or photograph them. |
-| Paste text into the session from your device | Allowed up to a size limit. Each paste is logged. Project policy can block, limit or allow it. | Paste small snippets. Bring larger material through an import request. |
-| Transfer files into or out of the session | Blocked in both directions | Use an import request for inbound files and an output request for outbound files. |
-| Download from the in-session browser | Disabled | Use an output request. |
-| Print from the in-session browser | Disabled | Use an output request. |
-| Open the application's direct address | Not exposed | Work through the session window. |
+| Action                                       | Result                                                                                         | What to do instead                                                                |
+| :------------------------------------------- | :--------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
+| Copy text out of the session to your device  | It is blocked and this behaviour cannot be changed.                                            | Send results through an output request. Do not retype or photograph them.         |
+| Paste text into the session from your device | Allowed up to a size limit. Each paste is logged. Project policy can block, limit or allow it. | Paste small snippets. Bring larger material through an import request.            |
+| Transfer files into or out of the session    | Blocked in both directions                                                                     | Use an import request for inbound files and an output request for outbound files. |
+| Download from the in-session browser         | Disabled                                                                                       | Use an output request.                                                            |
+| Print from the in-session browser            | Disabled                                                                                       | Use an output request.                                                            |
+| Open the application's direct address        | Not exposed                                                                                    | Work through the session window.                                                  |
 
 ### Limits
 
-- The sidecar controls clipboard and transfer, not pixels. Screenshots, photographs, retyping and on-device text recognition remain possible at every level.  
+- The sidecar controls clipboard and transfer on covered channels, not pixels. Screenshots, photographs, retyping and on-device text recognition remain possible at every level.  
 - Streaming adds latency to interactive work.  
 - Paste-in brings data into the session, so it is a data-entry route as well as a convenience.  
 - An application that cannot run behind the sidecar is not offered at Controlled (L1). An exception is possible only if it is recorded on the verdict page.  
@@ -163,16 +165,16 @@ If an application stops working after a package change, use the smallest reset t
 
 ## Budgets and compute
 
-Wallets and accounts hold spending limits. They have a credit balance. A displayed balance or allowance is automatically a hard cap.
+Accounts hold budgets. They have a credit balance. A displayed balance or allowance is not automatically a hard cap.
 
-The balance is used to fund the following resources:
+Depending on the resource and subscription, budgets and credits can fund:
 
 * Interactive compute runs (L0,L1)  
 * Batch job runs (L0,L1, L2, L3)  
 * Agentic workflows (L0, L1 with exceptions)  
 * Storage (L0,L1,L2,L3)
 
-Credit balance is a hard cap: once balance is depleted (balance \< 0), all interactive and batch compute jobs are terminated. Nuvolos does not allow starting jobs and runs that will deterministically terminate due to balance depletion during their course.
+A credit shortage stops credit-based applications. 
 
 To protect your work from a budget stop:
 
@@ -222,14 +224,14 @@ Example: A job needs a specific approved version of a statistics library. The de
 
 ### Run record fields
 
-| Field | What it shows |
-| :---- | :---- |
-| Run status | The job's current state, from submission to completion or failure |
-| Refusal reason | Why the platform refused the job before it started, and the next step |
-| Declared environment | The approved software and versions the job declared |
-| Dataset version | The approved, read-only version the job read |
-| Resources used | What the run consumed against its approved resources |
-| Recorded image | The image the job ran from. It shows what ran, not that the image was approved. |
+| Field                | What it shows                                                                   |
+| :------------------- | :------------------------------------------------------------------------------ |
+| Run status           | The job's current state, from submission to completion or failure               |
+| Refusal reason       | Why the platform refused the job before it started, and the next step           |
+| Declared environment | The approved software and versions the job declared                             |
+| Dataset version      | The approved, read-only version the job read                                    |
+| Resources used       | What the run consumed against its approved resources                            |
+| Recorded image       | The image the job ran from. It shows what ran, not that the image was approved. |
 
 ### Output area and staging
 
@@ -264,13 +266,13 @@ Results leave only through the output airlock, and a human decides every release
 
 ### Who decides
 
-| Role | Authority | Cannot be |
-| :---- | :---- | :---- |
-| Requester (you) | Creates and submits the request. Responds to requested changes. | The checker on your own request |
-| Data owner or delegate | Holds release authority under the data agreement. Can nominate a delegate. | Anyone not authorised under the data agreement |
-| Checker | Examines the frozen request and records a decision | The requester, the sponsor of any agent involved, or any agent, service or machine identity |
-| Recipient | Receives approved content through a single-use link | Anyone not authorised under the data owner's policy |
-| Project administrator | Assigns checkers and runs the review queue | A substitute for the data owner's authority |
+| Role                   | Authority                                                                  | Cannot be                                                                                   |
+| :--------------------- | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| Requester (you)        | Creates and submits the request. Responds to requested changes.            | The checker on your own request                                                             |
+| Data owner or delegate | Holds release authority under the data agreement. Can nominate a delegate. | Anyone not authorised under the data agreement                                              |
+| Checker                | Examines the frozen request and records a decision                         | The requester, the sponsor of any agent involved, or any agent, service or machine identity |
+| Recipient              | Receives approved content through a single-use link                        | Anyone not authorised under the data owner's policy                                         |
+| Project administrator  | Assigns checkers and runs the review queue                                 | A substitute for the data owner's authority                                                 |
 
 You cannot be the data owner or delegate who releases your own request. At Locked or Enhanced, neither checker can release.
 
@@ -278,13 +280,13 @@ The data custodian runs dataset intake and approves each dataset version. The da
 
 Your request moves through five states:
 
-| State | Meaning |
-| :---- | :---- |
-| Submitted | The frozen manifest is accepted, and checks are pending or complete. |
-| In review | A checker is examining the request. |
-| Decided | Approve, return for changes, or reject is recorded. |
-| Delivered | The authorised recipient has retrieved the approved content. |
-| Withdrawn or expired | The request is closed. It was never released. |
+| State                | Meaning                                                              |
+| :------------------- | :------------------------------------------------------------------- |
+| Submitted            | The frozen manifest is accepted, and checks are pending or complete. |
+| In review            | A checker is examining the request.                                  |
+| Decided              | Approve, return for changes, or reject is recorded.                  |
+| Delivered            | The authorised recipient has retrieved the approved content.         |
+| Withdrawn or expired | The request is closed. It was never released.                        |
 
 Waits are measured and shown, not promised. Nuvolos does not promise a decision time. Overdue requests escalate or expire, and they never release automatically. If no checker is available, the output stays inside the project.
 
@@ -292,15 +294,15 @@ Waits are measured and shown, not promised. Nuvolos does not promise a decision 
 
 Checkers look at each item. They also look at how it relates to earlier releases from the same project. The table lists the usual concerns and what helps.
 
-| Output | What the checker looks for | What helps |
-| :---- | :---- | :---- |
-| Tables and result sets | Small counts that could identify a person, and values that can be derived | Aggregate results, and apply the project's small-cell threshold |
-| Repeated releases | Differencing: safe-looking releases that together reveal a suppressed value | Explain how each release relates to earlier ones, and avoid near-duplicate cuts |
-| Code and notebooks | Embedded data, sample records in cell outputs, and credentials | Clear cell outputs, and remove data, keys and tokens before staging |
-| Models and weights | Memorised records. A model is not safe merely because it is not the dataset. | Agree the export policy before training. Models stay inside by default. |
-| Figures and documents | Small extracts and identifiable detail | Keep extracts minimal, and check captions and annotations |
-| Logs, prompts and AI records | Project data that may contain sensitive content | Stage only what you need, and review them like any other output |
-| Packages and archives | Contents, not filenames | List every file in the manifest, and do not bundle extras |
+| Output                       | What the checker looks for                                                   | What helps                                                                      |
+| :--------------------------- | :--------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
+| Tables and result sets       | Small counts that could identify a person, and values that can be derived    | Aggregate results, and apply the project's small-cell threshold                 |
+| Repeated releases            | Differencing: safe-looking releases that together reveal a suppressed value  | Explain how each release relates to earlier ones, and avoid near-duplicate cuts |
+| Code and notebooks           | Embedded data, sample records in cell outputs, and credentials               | Clear cell outputs, and remove data, keys and tokens before staging             |
+| Models and weights           | Memorised records. A model is not safe merely because it is not the dataset. | Agree the export policy before training. Models stay inside by default.         |
+| Figures and documents        | Small extracts and identifiable detail                                       | Keep extracts minimal, and check captions and annotations                       |
+| Logs, prompts and AI records | Project data that may contain sensitive content                              | Stage only what you need, and review them like any other output                 |
+| Packages and archives        | Contents, not filenames                                                      | List every file in the manifest, and do not bundle extras                       |
 
 Binary and proprietary files may not be inspectable. Project policy decides whether they can leave. The checker records the basis for the decision.
 
@@ -308,16 +310,16 @@ Binary and proprietary files may not be inspectable. Project policy decides whet
 
 A clear request helps the checker decide without a return for more information. Write the purpose and usage note for a checker who has not seen your analysis. Each item in the manifest needs these fields.
 
-| Field | What to enter |
-| :---- | :---- |
-| Item | Each file or item in the staging area |
-| Checksum | Recorded for each item from its exact bytes, at submission. Written once. |
-| Output kind | Table, figure, code, document, model, log, package or archive |
-| Source | The approved dataset version and the analysis code that produced the item |
-| Purpose and usage note | What the output is, why you need it, and who will use it |
-| Disclosure steps | The thresholds you applied, the rows or columns you removed, and the values you aggregated |
-| Relation to earlier releases | How the item relates to earlier releases from this project |
-| Recipient | Set under the data owner's policy. You do not choose it. |
+| Field                        | What to enter                                                                              |
+| :--------------------------- | :----------------------------------------------------------------------------------------- |
+| Item                         | Each file or item in the staging area                                                      |
+| Checksum                     | Recorded for each item from its exact bytes, at submission. Written once.                  |
+| Output kind                  | Table, figure, code, document, model, log, package or archive                              |
+| Source                       | The approved dataset version and the analysis code that produced the item                  |
+| Purpose and usage note       | What the output is, why you need it, and who will use it                                   |
+| Disclosure steps             | The thresholds you applied, the rows or columns you removed, and the values you aggregated |
+| Relation to earlier releases | How the item relates to earlier releases from this project                                 |
+| Recipient                    | Set under the data owner's policy. You do not choose it.                                   |
 
 A good purpose and usage note states five things:
 
@@ -398,30 +400,30 @@ If you later change the rounding, the approval no longer covers the changed byte
 
 Find the symptom in the table and take the next step. Most refusals give a reason. The reason tells you which request to raise.
 
-| You see | Why | What to do |
-| :---- | :---- | :---- |
-| Access denied | You lack the required instance role or the dataset approval | Ask the project manager to check your role. Ask the data custodian to confirm the dataset approval. An invitation does not approve a dataset. |
-| Import held | A required check is pending, failed or unavailable, or it was not configured | Check the status and reason. Correct the material, or wait for review. A failed or unavailable required check never turns into an approval. |
-| Application will not start | It is not in the catalogue, its licence is missing, or its elastic size is not enabled | Raise a software or entitlement request. |
-| Tool you used in open Nuvolos | Not automatically allowed in a TRE project | Request it through the approved software or connection process. |
-| Image refused at launch | The image is not on the approved list | Request the software through the catalogue route. |
-| Package install fails | The package source is not allowed, or self-service is off | Use an approved source, or request the package. |
-| Connection or mount refused | The connector is not on the project's list | Request the connector, or move the data through the import airlock. |
-| Paste refused or limited | Paste-in is capped in size, or project policy blocks it | Paste a smaller snippet, or bring the material through an import request. Ask the project manager about the policy. |
-| Copy or transfer out refused | Copy-out and file transfer out of the session are blocked | Use an output request. Do not retype or photograph results. |
-| Download, print or direct address unavailable | Downloads and printing from the in-session browser are off. The application's address is not exposed. | Use an output request for anything that must leave the project. |
-| Download or export refused | Direct export routes are closed in a TRE project | Use the request form that the refusal opens. |
-| Batch job refused | Software, versions or resources are not approved for the project | Read the reason in the run record. Request what is missing. |
-| Batch job stopped | The deployment's budget configuration stopped it, or an operator acted | Check the run record for the reason. Restore checkpoints from the output area or a persistent area. |
-| Session stopped | Inactivity, an operator action, or a deployment budget stop | Check session history for the reason. Restore saved work from persistent areas. |
-| New work refused | A budget is used up, or the resource configuration does not permit the work to start | Check usage against the budget. Ask the project manager to review it. |
-| File missing | You are in the wrong instance, or the file was in temporary storage | Check each persistent area. Temporary content cannot be recovered. |
-| Output returned for changes | The checker found an issue | Revise the content and resubmit. An old approval cannot cover changed content. |
-| Output stays inside | No qualified checker is available | Check the request status. Ask the project manager to escalate. |
-| Delivery link expired or failed | Links are single-use and time-limited | Ask for reissue through the governed flow. Do not reuse the link. |
-| Agent refused or paused | A pause is active, or the action is outside the agent's authority | Check with the agent's sponsor. Use Stop for running agent work. |
-| Logs unavailable | They are outside the deployment's retention window | Check the profile statement. Save important logs inside the project as data. |
-| Suspected incident | Something looks wrong with data, access or an output | Stop the activity if you can. Contact the project and TRE incident contacts. Do not use ordinary support. |
+| You see                                       | Why                                                                                                   | What to do                                                                                                                                    |
+| :-------------------------------------------- | :---------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| Access denied                                 | You lack the required instance role or the dataset approval                                           | Ask the project manager to check your role. Ask the data custodian to confirm the dataset approval. An invitation does not approve a dataset. |
+| Import held                                   | A required check is pending, failed or unavailable, or it was not configured                          | Check the status and reason. Correct the material, or wait for review. A failed or unavailable required check never turns into an approval.   |
+| Application will not start                    | It is not in the catalogue, its licence is missing, or its elastic size is not enabled                | Raise a software or entitlement request.                                                                                                      |
+| Tool you used in open Nuvolos                 | Not automatically allowed in a TRE project                                                            | Request it through the approved software or connection process.                                                                               |
+| Image refused at launch                       | The image is not on the approved list                                                                 | Request the software through the catalogue route.                                                                                             |
+| Package install fails                         | The package source is not allowed, or self-service is off                                             | Use an approved source, or request the package.                                                                                               |
+| Connection or mount refused                   | The connector is not on the project's list                                                            | Request the connector, or move the data through the import airlock.                                                                           |
+| Paste refused or limited                      | Paste-in is capped in size, or project policy blocks it                                               | Paste a smaller snippet, or bring the material through an import request. Ask the project manager about the policy.                           |
+| Copy or transfer out refused                  | The application session's copy-out or file-transfer control refused the attempt                       | Use an output request. Do not retype or photograph results.                                                                                   |
+| Download, print or direct address unavailable | Downloads and printing from the in-session browser are off. The application's address is not exposed. | Use an output request for anything that must leave the project.                                                                               |
+| Download or export refused                    | Direct export routes are closed in a TRE project                                                      | Use the request form that the refusal opens.                                                                                                  |
+| Batch job refused                             | Software, versions or resources are not approved for the project                                      | Read the reason in the run record. Request what is missing.                                                                                   |
+| Batch job stopped                             | The deployment's budget configuration stopped it, or an operator acted                                | Check the run record for the reason. Restore checkpoints from the output area or a persistent area.                                           |
+| Session stopped                               | Inactivity, an operator action, or a deployment budget stop                                           | Check session history for the reason. Restore saved work from persistent areas.                                                               |
+| New work refused                              | A budget is used up, or the resource configuration does not permit the work to start                  | Check usage against the budget. Ask the project manager to review it.                                                                         |
+| File missing                                  | You are in the wrong instance, or the file was in temporary storage                                   | Check each persistent area. Temporary content cannot be recovered.                                                                            |
+| Output returned for changes                   | The checker found an issue                                                                            | Revise the content and resubmit. An old approval cannot cover changed content.                                                                |
+| Output stays inside                           | No qualified checker is available                                                                     | Check the request status. Ask the project manager to escalate.                                                                                |
+| Delivery link expired or failed               | Links are single-use and time-limited                                                                 | Ask for reissue through the governed flow. Do not reuse the link.                                                                             |
+| Agent refused or paused                       | A pause is active, or the action is outside the agent's authority                                     | Check with the agent's sponsor. Use Stop for running agent work.                                                                              |
+| Logs unavailable                              | They are outside the deployment's retention window                                                    | Check the profile statement. Save important logs inside the project as data.                                                                  |
+| Suspected incident                            | Something looks wrong with data, access or an output                                                  | Stop the activity if you can. Contact the project and TRE incident contacts. Do not use ordinary support.                                     |
 
 ## Limits
 

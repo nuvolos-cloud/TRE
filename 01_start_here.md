@@ -85,18 +85,18 @@ Any change to the bytes invalidates the approval. A timeout never releases anyth
 
 ### Remote-desktop sidecar at Controlled
 
-At Controlled, no application's interface reaches the user's browser directly. Each interactive application, such as a notebook, web IDE, statistical tool or desktop, runs in its own container. A named, unprivileged sidecar in the same workload renders the application in an isolated browser or desktop session (an interactive application session) and streams only the screen to the user.
+At Controlled, no application's interface reaches the user's browser directly. Each interactive application, such as a notebook, web IDE, statistical tool or desktop, runs in its own container. A named, unprivileged sidecar in the same workload renders the application in an isolated browser or desktop session (an interactive application session) and streams the screen to the user.
 
-The application listens only inside the workload, and only the sidecar is reachable from the user's device. The sidecar sets the clipboard and transfer defaults for the session it renders. Each clipboard or transfer attempt is logged with its direction, size and outcome. The log never holds its content.
+The application listens only inside the workload, and only the sidecar is reachable from the user's device. The sidecar sets the clipboard and transfer defaults for the session it renders. On covered channels, clipboard and transfer attempts are logged with direction, size and outcome, never content. Check deployment evidence for channel coverage.
 
 
-| Control                                            | Default                                                                              |
-| :------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| Copy-out from the session to the user's device     | Blocked. This cannot be changed.                                                     |
-| Paste-in to the session                            | Allowed up to a size limit, and logged. Project policy can block, limit or allow it. |
-| File transfer in either direction                  | Blocked. Files move only through the airlocks.                                       |
-| Downloads and printing from the in-session browser | Disabled.                                                                            |
-| Direct address of the application                  | Not exposed.                                                                         |
+| Control                                                    | Default                                                                              |
+| :--------------------------------------------------------- | :----------------------------------------------------------------------------------- |
+| Copy-out from the application session to the user's device | Blocked. This cannot be changed.                                                     |
+| Paste-in to the session                                    | Allowed up to a size limit, and logged. Project policy can block, limit or allow it. |
+| File transfer in either direction                          | Blocked. Files move only through the airlocks.                                       |
+| Downloads and printing from the in-session browser         | Disabled.                                                                            |
+| Direct address of the application                          | Not exposed.                                                                         |
 
 &nbsp;
 
@@ -123,7 +123,7 @@ The verdict page shows one state for each control in each cluster class. A clust
 ### Limits
 
 - Nuvolos does not block screenshots, photographs, screen recording or manual retyping at any level.  
-- The sidecar controls clipboard and file transfer. It does not control what appears on screen, and streaming adds latency.  
+- The sidecar controls clipboard and file transfer on covered channels. It does not control what appears on screen, and streaming adds latency.  
 - Paste-in brings data into an interactive session. Project policy decides whether that is allowed. Contained reviewer sessions block it.  
 - Instances share their project's level. Narrower instance permissions cannot widen access beyond the project level; whether a narrower role is an enforced read barrier depends on deployment evidence.  
 - The audit trail is tamper-evident, not tamper-proof. Verdict claims are made per deployment.
@@ -146,7 +146,6 @@ Each level adds controls to the one below it. The platform enforces each TRE lev
 | Deployment      | Ordinary platform.                            | Per deployment, with evidence per cluster class.                                                                                            | Per deployment, with evidence per cluster class.                                                                        | Dedicated deployment.                                                                                                                   |
 | Main limit      | No TRE assurance.                             | Pixels can still be captured, and outbound internet is not blocked by default.                                                              | Reviewer sessions are still interactive sessions, and interactive working is not offered to researchers.                | Not operator-blind, not air-gapped, and no confidential computing.                                                                      |
 
-&nbsp;
 
 Limits
 
